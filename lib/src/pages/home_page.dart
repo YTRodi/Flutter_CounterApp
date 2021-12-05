@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final textStyle = const TextStyle(fontSize: 25);
+  final counter = 10;
 
   const HomePage({Key? key}) : super(key: key);
 
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Número de clicks:', style: textStyle),
-            Text('0', style: textStyle),
+            Text('$counter', style: textStyle),
           ],
         ),
       ),
