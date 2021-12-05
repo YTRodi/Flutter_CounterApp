@@ -29,19 +29,43 @@ class _CounterPageState extends State<CounterPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          // Cuando esta variable cambia, tengo que redibujar este StatefulWidget con el método "setState"
-          // _counter++;
-          // setState(() {});
-
-          // IDEM
-          setState(() {
-            _counter++;
-          });
-        },
-      ),
+      floatingActionButton: _createButtons(),
     );
+  }
+
+  Widget _createButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        const SizedBox(width: 30.0),
+        FloatingActionButton(
+          child: const Icon(Icons.exposure_zero),
+          onPressed: _reset,
+        ),
+        const Expanded(child: SizedBox(width: 5.0)),
+        FloatingActionButton(
+          child: const Icon(Icons.remove),
+          onPressed: _remove,
+        ),
+        const SizedBox(width: 5.0),
+        FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: _add,
+        ),
+        const SizedBox(width: 5.0),
+      ],
+    );
+  }
+
+  void _add() {
+    setState(() => _counter++);
+  }
+
+  void _remove() {
+    setState(() => _counter--);
+  }
+
+  void _reset() {
+    setState(() => _counter = 0);
   }
 }
