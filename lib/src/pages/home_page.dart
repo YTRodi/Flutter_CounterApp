@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  final textStyle = const TextStyle(fontSize: 25);
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -12,11 +14,17 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
 
         // En ambos dispositivos
-        elevation: 10,
-        shadowColor: Colors.amber,
+        // elevation: 10,
+        // shadowColor: Colors.amber,
       ),
-      body: const Center(
-        child: Text('Hola mundo'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Número de clicks:', style: textStyle),
+            Text('0', style: textStyle),
+          ],
+        ),
       ),
     );
   }
